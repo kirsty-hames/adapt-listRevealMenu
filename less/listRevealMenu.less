@@ -1,11 +1,16 @@
 /*list reveal menu*/
 .menu-banner {
+	@media all and (min-width:@device-width-small) {
 	max-height: 400px;
 	height:400px;
 	margin: auto;
 	background-image: url(../../course/en/images/banner.jpg);
 	background-position:center;
 	background-repeat: no-repeat;
+	}
+	@media all and (max-width:@device-width-small) {
+		background-color: @primary-color;
+	}
 
 }
 
@@ -29,6 +34,10 @@
 	}
 	@media all and (max-width:@device-width-small) {
 		font-size: 25px;
+		color: @background-color;
+		padding: 0;
+		background-color: @primary-color;
+		margin: 20px;
 	}
 }
 
@@ -48,6 +57,13 @@
 	background-color: @transparency;
 	display: inline-block;
 	margin: 20px;
+	@media all and (max-width:@device-width-small) {
+		color: @background-color;
+		padding-bottom: 5px;
+		background-color: @primary-color;
+		margin: 0;
+		padding: 0 0 5% 0;
+	}
 }
 
 
@@ -74,13 +90,15 @@
 	&.nth-child-1 {
 		margin-top:0%;
 	}
-	&:hover {
-		.menu-item-title {
-			display:none;
-		}
-		.menu-item-overlay {
-			opacity:1;
-			left:0%;
+	@media all and (min-width:@device-width-medium) {
+		&:hover {
+			.menu-item-title {
+				display:none;
+			}
+			.menu-item-overlay {
+				opacity:1;
+				left:0%;
+			}
 		}
 	}
 }
@@ -93,7 +111,11 @@
 	position:absolute;
 	width:100%;
 	text-align:center;
-	top: 30%;
+	top: 50%;
+	@media all and (max-width:@device-width-medium) {
+		position: static;
+		margin-top:0px !important;
+	}
 }
 
 .menu-item-title-inner {
@@ -118,10 +140,6 @@
 	display: block;
 }
 
-.menu-item-body-inner {
-	text-align: center;
-}
-
 .menu-item-overlay {
 	opacity:0;
 	position: absolute;
@@ -134,9 +152,10 @@
 		background-image:@transparency-fallback-png;
 	}
 	background-color: @transparency;
-	transition:all 0.8s;
+	transition: left 0.8s;
 	text-align: center;
-	@media all and (max-width:@device-width-small) {
+	@media all and (max-width:@device-width-medium) {
+		position: static;
 		opacity: 1;
 		display: block;
 		left: 0;
@@ -149,13 +168,20 @@
 	display: block;
 }
 
+.menu-item-body-inner {
+	text-align: center;
+	padding: 10% 10% 0 10%;
+	@media all and (max-width:@device-width-medium) {
+		padding: 5% 5% 0 5%;
+	}
+	@media all and (max-width:@device-width-small) {
+		padding: 5% 5% 0 5%;
+	}
+}
+
 .menu-item-view {
 	display: inline-block;
 	text-decoration: none;
-}
-
-.menu-item-body-inner {
-	padding: 10% 10% 0 10%;
 }
 
 .menu-item-view-inner {

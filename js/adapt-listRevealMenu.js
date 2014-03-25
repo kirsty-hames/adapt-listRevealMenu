@@ -33,13 +33,22 @@ define(function(require) {
 
         preRender: function() {
             this.model.getCompleteComponentsAsPercentage();
+            this.listenTo(Adapt, 'device:resize', this.centerTitle);
         },
 
         postRender: function() {
-            this.setReadyStatus();
-            /*this.$el.imageready(_.bind(function() {
-                
-            }, this));*/
+            
+            this.$el.imageready(_.bind(function() {
+                this.setReadyStatus();  
+            }, this));
+
+            this.centerTitle();
+        },
+
+        centerTitle: function() {
+            var titleHeight = this.$('.menu-item-title').height();
+            console.log(titleHeight);
+            this.$('.menu-item-title').css('margin-top', -titleHeight/2 + 'px');
         }
 
     }, {
