@@ -1,29 +1,53 @@
 /*list reveal menu*/
 .menu-banner {
-	max-width: 960px;
 	max-height: 400px;
 	height:400px;
 	margin: auto;
-	background-image: url(../../course/en/images/page-banner.jpg);
+	background-image: url(../../course/en/images/banner.jpg);
 	background-position:center;
+	background-repeat: no-repeat;
+
+}
+
+.menu-title {
+	display: block;
+	text-align: center;
 }
 
 .menu-title-inner {
 	text-align: center;
 	color: #000;
-	padding: 5%;
-	background-color: rgba(255, 255, 255, 0.8);
+	padding: 30px;
+	.ie8 & {
+		background-image:@transparency-fallback-png;
+	}
+	background-color: @transparency;
+	display: inline-block;
+	margin: 40px 20px 20px 20px;
+	@media all and (max-width:@device-width-medium) {
+		font-size: 30px;
+	}
+	@media all and (max-width:@device-width-small) {
+		font-size: 25px;
+	}
 }
 
 .menu-body {
-	
+	display: block;
+	text-align: center;
+	top: 30%;
 }
 
 .menu-body-inner {
 	text-align: center;
 	color: #000;
-	padding: 0 5%;
-	background-color: rgba(255, 255, 255, 0.8);
+	padding: 20px;
+	.ie8 & {
+		background-image:@transparency-fallback-png;
+	}
+	background-color: @transparency;
+	display: inline-block;
+	margin: 20px;
 }
 
 
@@ -31,13 +55,34 @@
 /*list reveal menu items*/
 
 .menu-items {
-	max-width: 960px;
-	max-height: 400px;
 	margin: auto;
+	background-color: #e5e5e5;
 }
 
 .menu-items-inner {
-	padding:30px;
+	padding:5%;
+}
+
+.menu-item {
+	width:900px;
+	@media all and (max-width:@device-width-large) {
+		width:100%;
+	}
+	margin:auto;
+	margin-top:5%;
+	overflow: hidden;
+	&.nth-child-1 {
+		margin-top:0%;
+	}
+	&:hover {
+		.menu-item-title {
+			display:none;
+		}
+		.menu-item-overlay {
+			opacity:1;
+			left:0%;
+		}
+	}
 }
 
 .menu-item-inner {
@@ -48,17 +93,29 @@
 	position:absolute;
 	width:100%;
 	text-align:center;
+	top: 30%;
 }
 
 .menu-item-title-inner {
 	text-align: center;
-	padding: 5%;
-	background-color: rgba(255, 255, 255, 0.8);
+	padding: 30px;
+	
+	.ie8 & {
+		background-image:@transparency-fallback-png;
+	}
+	background-color: @transparency;
 	display:inline-block;
+	@media all and (max-width:@device-width-medium) {
+		font-size: 30px;
+		display: block;
+	}
+	@media all and (max-width:@device-width-small) {
+		font-size: 25px;
+	}
 }
 
 .menu-item-graphic-inner {
-	display:block;
+	display: block;
 }
 
 .menu-item-body-inner {
@@ -66,6 +123,42 @@
 }
 
 .menu-item-overlay {
-	display:none;
+	opacity:0;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	height: 100%;
+
+	.ie8 & {
+		background-image:@transparency-fallback-png;
+	}
+	background-color: @transparency;
+	transition:all 0.8s;
+	text-align: center;
+	@media all and (max-width:@device-width-small) {
+		opacity: 1;
+		display: block;
+		left: 0;
+		top: 100%;
+		transition: none;
+	}
+}
+
+.menu-item-body {
+	display: block;
+}
+
+.menu-item-view {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.menu-item-body-inner {
+	padding: 10% 10% 0 10%;
+}
+
+.menu-item-view-inner {
+	padding:@button-padding;
 }
 
