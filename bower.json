@@ -1,0 +1,22 @@
+{
+  "name": "adapt-listRevealMenu",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kirsty-hames/adapt-listRevealMenu",
+  "authors": [
+    ""
+  ],
+  "description": "An Adapt menu containing list items that reveal the description text",
+  "main": "js/adapt-listRevealMenu.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-menu"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
