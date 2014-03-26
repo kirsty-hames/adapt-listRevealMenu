@@ -37,6 +37,8 @@ define(function(require) {
         },
 
         postRender: function() {
+
+            console.log(this);
             
             this.$el.imageready(_.bind(function() {
                 this.setReadyStatus();  
@@ -46,9 +48,12 @@ define(function(require) {
         },
 
         centerTitle: function() {
-            var titleHeight = this.$('.menu-item-title').height();
-            console.log(titleHeight);
-            this.$('.menu-item-title').css('margin-top', -titleHeight/2 + 'px');
+            if (Adapt.device.screenSize === "large") {
+                var titleHeight = this.$('.menu-item-title').height();
+                this.$('.menu-item-title').css('margin-top', -titleHeight/2 + 'px');
+            } else {
+                this.$('.menu-item-title').css('margin-top', '');
+            }
         }
 
     }, {
