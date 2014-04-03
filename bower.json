@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/kirsty-hames/adapt-listRevealMenu",
   "authors": [
-    ""
+    "Kirsty Hames <kirstyjhames@gmail.com>"
   ],
   "description": "An Adapt menu containing list items that reveal the description text",
   "main": "js/adapt-listRevealMenu.js",
