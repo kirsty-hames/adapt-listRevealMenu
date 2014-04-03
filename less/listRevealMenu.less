@@ -37,7 +37,7 @@
 	}
 	@media all and (max-width:@device-width-small) {
 		font-size: 25px;
-		color: @background-color;
+		color: @foreground-color;
 		padding: 0;
 		background-color: transparent;
 		margin: 20px;
@@ -58,7 +58,7 @@
 	display: inline-block;
 	margin: 20px;
 	@media all and (max-width:@device-width-small) {
-		color: @background-color;
+		color: @foreground-color;
 		padding-bottom: 5px;
 		background-color: transparent;
 		margin: 0;
@@ -81,22 +81,37 @@
 
 .menu-item {
 	width:900px;
-	@media all and (max-width:@device-width-large) {
-		width:100%;
-	}
+	display: block;
+	overflow: hidden;
 	margin:auto;
 	margin-top:5%;
-	overflow: hidden;
+	@media all and (max-width:@device-width-large) {
+		max-width:900px;
+		width:100%;
+	}
+	
 	&.nth-child-1 {
 		margin-top:0%;
 	}
 	@media all and (min-width:@device-width-medium) {
+		overflow: hidden;
 		&:hover {
 			.menu-item-title {
 				display:none;
 			}
 			.menu-item-overlay {
 				opacity:1;
+				left:0%;
+			}
+		}
+	}
+	.ie8 & {
+		overflow: hidden;
+		&:hover {
+			.menu-item-title {
+				display:none;
+			}
+			.menu-item-overlay {
 				left:0%;
 			}
 		}
@@ -120,6 +135,7 @@
 
 .menu-item-title-inner {
 	text-align: center;
+	color: @primary-color;
 	padding: 30px;
 	
 	.ie8 & {
@@ -170,6 +186,7 @@
 
 .menu-item-body-inner {
 	text-align: center;
+	color: @primary-color;
 	padding: 10% 10% 0 10%;
 	@media all and (max-width:@device-width-medium) {
 		padding: 5% 5% 0 5%;
