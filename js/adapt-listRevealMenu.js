@@ -33,13 +33,27 @@ define(function(require) {
 
         preRender: function() {
             this.model.getCompleteComponentsAsPercentage();
+            this.listenTo(Adapt, 'device:resize', this.centerTitle);
         },
 
         postRender: function() {
-            this.setReadyStatus();
-            /*this.$el.imageready(_.bind(function() {
-                
-            }, this));*/
+
+            console.log(this);
+            
+            this.$el.imageready(_.bind(function() {
+                this.setReadyStatus();  
+            }, this));
+
+            this.centerTitle();
+        },
+
+        centerTitle: function() {
+            if (Adapt.device.screenSize === "large") {
+                var titleHeight = this.$('.menu-item-title').height();
+                this.$('.menu-item-title').css('margin-top', -titleHeight/2 + 'px');
+            } else {
+                this.$('.menu-item-title').css('margin-top', '');
+            }
         }
 
     }, {
